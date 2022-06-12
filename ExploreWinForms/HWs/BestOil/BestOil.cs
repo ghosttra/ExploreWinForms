@@ -1,12 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
-using System.Drawing;
 using System.IO;
 using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
 
 namespace ExploreWinForms.HWs.BestOil
@@ -38,14 +33,6 @@ namespace ExploreWinForms.HWs.BestOil
             {
                 addGood(i, CafeGoods.Keys.ToArray()[i], CafeGoods.Values.ToArray()[i].ToString());
             }
-            //CafeGoods[HotDogCheckBox.Text] = 4.0M;
-            //CafeGoods[HamburgerCheckBox.Text] = 5.4M;
-            //CafeGoods[FriesCheckBox.Text] = 7.2M;
-            //CafeGoods[CokeCheckBox.Text] = 4.40M;
-
-            //FuelPrices[FuelCombBox.Items[0].ToString()] = 49.59M;
-            //FuelPrices[FuelCombBox.Items[1].ToString()] = 50.27M;
-            //FuelPrices[FuelCombBox.Items[2].ToString()] = 51.48M;
             FuelCombBox.SelectedIndex = 0;
         }
         private void ElemsVisible(bool _visible)
