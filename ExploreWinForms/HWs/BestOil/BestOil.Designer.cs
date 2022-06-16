@@ -458,6 +458,7 @@
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "BestOil";
             this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.BestOil_FormClosing);
+            this.Load += new System.EventHandler(this.BestOil_Load);
             this.groupBox1.ResumeLayout(false);
             this.groupBox1.PerformLayout();
             this.LitersOrMoneyGB.ResumeLayout(false);

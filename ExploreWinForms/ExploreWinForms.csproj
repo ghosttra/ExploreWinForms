@@ -46,6 +46,12 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="CWs\15062022.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="CWs\15062022.Designer.cs">
+      <DependentUpon>15062022.cs</DependentUpon>
+    </Compile>
     <Compile Include="HWs\BestOil\AdminMenu.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -72,11 +78,15 @@
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <EmbeddedResource Include="CWs\15062022.resx">
+      <DependentUpon>15062022.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="HWs\BestOil\AdminMenu.resx">
       <DependentUpon>AdminMenu.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="HWs\BestOil\BestOil.resx">
       <DependentUpon>BestOil.cs</DependentUpon>
+      <SubType>Designer</SubType>
     </EmbeddedResource>
     <EmbeddedResource Include="HWs\Form1.resx">
       <DependentUpon>Form1.cs</DependentUpon>

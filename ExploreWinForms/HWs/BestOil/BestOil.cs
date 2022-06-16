@@ -2,6 +2,8 @@
 using System.Collections.Generic;
 using System.IO;
 using System.Linq;
+using System.Reflection;
+using System.Text;
 using System.Windows.Forms;
 
 namespace ExploreWinForms.HWs.BestOil
@@ -13,27 +15,37 @@ namespace ExploreWinForms.HWs.BestOil
         public Dictionary<string, decimal> CafeGoods { get; set; }
         public Dictionary<string, decimal> FuelPrices { get; set; }
         public decimal Earnings { get; set; }
+        string fuelPath = Path.Combine(Directory.GetParent(Directory.GetParent(Directory.GetCurrentDirectory()).ToString()).ToString()
+               , "FuelPrices.txt");
+        string cafePath = Path.Combine(Directory.GetParent(Directory.GetParent(Directory.GetCurrentDirectory()).ToString()).ToString()
+           , "CafeGoodsPrices.txt");
         public BestOil()
         {
             InitializeComponent();
             CafeGoods = new Dictionary<string, decimal>();
             FuelPrices = new Dictionary<string, decimal>();
-            using (StreamReader reader = File.OpenText("FuelPrices.txt"))
+            if (File.Exists(fuelPath) && File.Exists(cafePath))
             {
-                while (!reader.EndOfStream)
-                    FuelPrices.Add(reader.ReadLine(), Convert.ToDecimal(reader.ReadLine()));
+                using (StreamReader reader = File.OpenText(fuelPath))
+                {
+                    while (!reader.EndOfStream)
+                        FuelPrices.Add(reader.ReadLine(), Convert.ToDecimal(reader.ReadLine()));
+                }
+                FuelCombBox.Items.AddRange(FuelPrices.Keys.ToArray());
+                using (StreamReader reader = File.OpenText(cafePath))
+                {
+                    while (!reader.EndOfStream)
+                        CafeGoods.Add(reader.ReadLine(), Convert.ToDecimal(reader.ReadLine()));
+                }
+                for (int i = 0; i < CafeGoods.Count; i++)
+                {
+                    addGood(i, CafeGoods.Keys.ToArray()[i], CafeGoods.Values.ToArray()[i].ToString());
+                }
+                FuelCombBox.SelectedIndex = 0;
             }
-            FuelCombBox.Items.AddRange(FuelPrices.Keys.ToArray());
-            using (StreamReader reader = File.OpenText("CafeGoodsPrices.txt"))
-            {
-                while (!reader.EndOfStream)
-                    CafeGoods.Add(reader.ReadLine(), Convert.ToDecimal(reader.ReadLine()));  
-            }
-            for (int i = 0; i < CafeGoods.Count; i++)
-            {
-                addGood(i, CafeGoods.Keys.ToArray()[i], CafeGoods.Values.ToArray()[i].ToString());
-            }
-            FuelCombBox.SelectedIndex = 0;
+
+
+
         }
         private void ElemsVisible(bool _visible)
         {
@@ -291,7 +303,7 @@ namespace ExploreWinForms.HWs.BestOil
 
         private void BestOil_FormClosing(object sender, FormClosingEventArgs e)
         {
-            using (StreamWriter writer = File.CreateText("FuelPrices.txt"))
+            using (StreamWriter writer = File.CreateText(fuelPath))
             {
                 var Keys = FuelPrices.Keys.ToList();
                 var Values = FuelPrices.Values.ToList();
@@ -301,7 +313,7 @@ namespace ExploreWinForms.HWs.BestOil
                     writer.WriteLine(Values[i]);
                 }
             }
-            using (StreamWriter writer = File.CreateText("CafeGoodsPrices.txt"))
+            using (StreamWriter writer = File.CreateText(cafePath))
             {
                 var Keys = CafeGoods.Keys.ToList();
                 var Values = CafeGoods.Values.ToList();
@@ -311,6 +323,11 @@ namespace ExploreWinForms.HWs.BestOil
                     writer.WriteLine(Values[i]);
                 }
             }
+        }
+
+        private void BestOil_Load(object sender, EventArgs e)
+        {
+
         }
     }
     class User
