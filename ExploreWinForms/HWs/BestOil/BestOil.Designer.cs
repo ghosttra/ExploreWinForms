@@ -64,6 +64,7 @@
             this.label2 = new System.Windows.Forms.Label();
             this.label3 = new System.Windows.Forms.Label();
             this.groupBox2 = new System.Windows.Forms.GroupBox();
+            this.label7 = new System.Windows.Forms.Label();
             this.groupBox1.SuspendLayout();
             this.LitersOrMoneyGB.SuspendLayout();
             this.groupBox3.SuspendLayout();
@@ -253,6 +254,7 @@
             // 
             // groupBox6
             // 
+            this.groupBox6.Controls.Add(this.label7);
             this.groupBox6.Controls.Add(this.label6);
             this.groupBox6.Controls.Add(this.label4);
             this.groupBox6.Controls.Add(this.label5);
@@ -439,6 +441,15 @@
             this.groupBox2.TabStop = false;
             this.groupBox2.Text = "Кафе";
             // 
+            // label7
+            // 
+            this.label7.AutoSize = true;
+            this.label7.Location = new System.Drawing.Point(12, 51);
+            this.label7.Name = "label7";
+            this.label7.Size = new System.Drawing.Size(35, 13);
+            this.label7.TabIndex = 16;
+            this.label7.Text = "label7";
+            // 
             // BestOil
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -513,5 +524,6 @@
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.GroupBox groupBox2;
+        private System.Windows.Forms.Label label7;
     }
 }

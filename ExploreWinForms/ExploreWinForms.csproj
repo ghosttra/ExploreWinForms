@@ -64,6 +64,12 @@
     <Compile Include="HWs\BestOil\BestOil.Designer.cs">
       <DependentUpon>BestOil.cs</DependentUpon>
     </Compile>
+    <Compile Include="HWs\DragNDrop.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="HWs\DragNDrop.Designer.cs">
+      <DependentUpon>DragNDrop.cs</DependentUpon>
+    </Compile>
     <Compile Include="HWs\Form1.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -87,6 +93,9 @@
     <EmbeddedResource Include="HWs\BestOil\BestOil.resx">
       <DependentUpon>BestOil.cs</DependentUpon>
       <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="HWs\DragNDrop.resx">
+      <DependentUpon>DragNDrop.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="HWs\Form1.resx">
       <DependentUpon>Form1.cs</DependentUpon>

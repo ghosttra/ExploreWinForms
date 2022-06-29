@@ -16,7 +16,7 @@ namespace ExploreWinForms
         {
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
-            Application.Run(new HWs.BestOil.BestOil());
+            Application.Run(new HWs.DragNDrop());
         }
     }
 }

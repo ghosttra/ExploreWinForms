@@ -21,7 +21,9 @@ namespace ExploreWinForms.HWs.BestOil
            , "CafeGoodsPrices.txt");
         public BestOil()
         {
+           
             InitializeComponent();
+            label7.Text = Directory.GetCurrentDirectory().ToString();
             CafeGoods = new Dictionary<string, decimal>();
             FuelPrices = new Dictionary<string, decimal>();
             if (File.Exists(fuelPath) && File.Exists(cafePath))
